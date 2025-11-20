@@ -1,0 +1,116 @@
+folio,programa,institucion,region_instalacion,tipo_equipamiento,equipo,marca,modelo,coordinador,email,anio_convocatoria
+EQY240004,FONDEQUIP,UNIVERSIDAD SAN SEBASTIAN,Región de Los Ríos,Otros,LASER CONFOCAL SCANNING MICROSCOPE,Leica,Stellaris 8,Luis Barros,fbarros@cecs.cl,2024
+EQY230023,FONDEQUIP,UNIVERSIDAD AUSTRAL DE CHILE,Región de Los Ríos,Otros,NEXTSEQ 2000 SYSTEM,Illumina,20038897,Andrea Silva,andrea.silva@uach.cl,2023
+EQY230021,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Otros,MGI GENETIC INTEGRATED PLATFORM,MGI,MGI MGISP-100RS MGI Genetic Sequencer DNBSEQ-G50RS and MGI MegaBOLT Bioinformatics,Felipe Zuñiga,fzuniga@udec.cl,2023
+EQY230005,FONDEQUIP,UNIVERSIDAD DE LA FRONTERA,Región de la Araucanía,Otros,MICROSCOPIO ELECTRÓNICO DE TRANSMISIÓN,HITACHI,HT7820,Marcela Calabi,breges@gmail.com,2023
+EQY220001,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Otros,MICROSONDA ELECTRÓNICA,JEOL,JXA-iSP100,Laura Hernández,lahernan@udec.cl,2022
+EQM240103,FONDEQUIP,UNIVERSIDAD DEL BIO-BIO,Región del Bío-Bío,Otros,NORIA FBG MANUFACTURING STATION,NorthLab Photonics AB,FB-01-01501,Gustavo Cañas,gcanas@ubiobio.cl,2024
+EQM240102,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Otros,HOLOTOMÓGRAFO HT-X1,TomoCube,XT-X1,FRANCISCO NUALART,frnualart@udec.cl,2024
+EQM240078,FONDEQUIP,UNIVERSIDAD DEL BIO-BIO,Región del Bío-Bío,Otros,GT5000 TERRA,GASMET,GT5000,Hernan Ahumada,hahumada@ubiobio.cl,2024
+EQM240058,FONDEQUIP,PONTIFICIA UNIVERSIDAD CATOLICA DE CHILE,Región de la Araucanía,Otros,MAGSTIM 400AMP EGI 256 HIGH DENSITY,Magtim EGI,256 Channel Net Amps 400,DAYNA MOYA,damoya@uc.cl,2024
+EQM240034,FONDEQUIP,UNIVERSIDAD DEL BIO-BIO,Región del Bío-Bío,Otros,SISTEMA TERMOGRAVIMÉTRICO ACOPLADO A UN INFRARROJO CON TRANSFORMADA DE FOURIER DE AMPLIO RANGO LEJANO-MEDIO-CERCANO TGA-FT-IR PARA EL ESTUDIO DE MATERIALES AVANZADOS,Netzsch y Bruker,TG 309 Libra/ FT-IR INVENIO-S,Mario Núñez,mnunez@ubiobio.cl,2024
+EQM240021,FONDEQUIP,UNIVERSIDAD DE LA FRONTERA,Región de la Araucanía,Otros,DINAMÓMETRO ISOCINÉTICO HUMAC NORM EXTREMITY SYSTEM,HUMAC NORM,Extremity System,Gabriel Marzuca,gabriel.marzuca@ufrontera.cl,2024
+EQM240006,FONDEQUIP,UNIVERSIDAD DE LA FRONTERA,Región de la Araucanía,Otros,TÚNEL DE VIENTO,Aerolab,circuito horizonzontal abierto personalizado,Rodrigo Soto,rodrigo.soto.valle@gmail.com,2024
+EQM230107,FONDEQUIP,UNIVERSIDAD CATOLICA DE TEMUCO,Región de la Araucanía,Otros,SISTEMA DE INTERCAMBIO DE GASES CO2/H2O,LI-COR,LI-6800,Emilio Jorquera,ejorquera@uct.cl,2023
+EQM230105,FONDEQUIP,UNIVERSIDAD DE LA FRONTERA,Región de la Araucanía,Otros,PLATAFORMA DE MONITORIZACIÓN ISOTÓPICA EN MUESTRAS DE AGUA,Picarro,L2140-i/A0217,Marcelo Somos,msomos@utexas.edu,2023
+EQM230096,FONDEQUIP,UNIVERSIDAD SAN SEBASTIAN,Región de los Lagos,Otros,CYTEK AURORA CS,Cytek Biosciences,Aurora CS,Maria Barria,mibarria@gmail.com,2023
+EQM230094,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Otros,CÁMARA HIPERESPECTRAL NIR 900-1700 NM,Resonon,Pika IR,ROSARIO CASTILLO,rosariocastillo@udec.cl,2023
+EQM230050,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Otros,PLATAFORMA METROLÓGICA PARA CALIBRACIÓN DE INSTRUMENTOS OCEANOGRÁFICOS PMCIO,FLUKE/GUIDLINE/ METROHM/RINKO/MILLI-Q,ST-FLUKE 1595A-256/GPM-FLUKE P5514B-2700G/ GUILDLINE PRECISION FLUID BATH 300L/ 8400B GUILDLINE AUTOSAL SALINOMETER/MILI-Q EQ 7008.,Oscar Pizarro,opizarro@udec.cl,2023
+EQM230027,FONDEQUIP,UNIVERSIDAD DEL BIO-BIO,Región del Bío-Bío,Otros,ANALIZADOR TERMOMECÁNICO DINÁMICO MULTIANÁLISIS UV-HR-ME,Netzsch,DMA 303 Eplexor,Mario Núñez,mnunez@ubiobio.cl,2023
+EQM220161,FONDEQUIP,UNIVERSIDAD DE LA FRONTERA,Región de la Araucanía,Otros,NANALYSIS 100PRO NMR,Nanalysis,100PRO,Cristian Paz,cristian.paz@ufrontera.cl,2022
+EQM220137,FONDEQUIP,UNIVERSIDAD DEL BIO-BIO,Región del Bío-Bío,Otros,NVIDIA DGX A100,Nvidia,DGX A100,Francisco Ramis,framis@ubiobio.cl,2022
+EQM220083,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Otros,ANALIZADO5 DINÁMICO MECÁNICO,TA Instruments,850,Bruno Urbano,burbano@udec.cl,2022
+EQM220063,FONDEQUIP,UNIVERSIDAD DE LA FRONTERA,Región de la Araucanía,Otros,PLATAFORMA EN AEROBIOLOGÍA,Bertin Instruments Plair Sibata Inteccom Inc TSI Qiagen,Coriolis® compact Rapid E Sibata HV500-R TE10800 Six Stage Biotrak® 9510 QIAcuity One 5plex,Milko Jorquera,milko.jorquera@ufrontera.cl,2022
+EQM220061,FONDEQUIP,UNIVERSIDAD DE LA FRONTERA,Región de la Araucanía,Otros,MICROTOMÓGRAFO DE RAYOS X,Bruker,SkyScan 1273,María Bucchi,cristinabucchi@gmail.com,2022
+EQM220055,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Otros,MALDI-TOF/TOF-MS,Bruker Daltonics,autoflex maX TOF/TOF,ANDY PEREZ,aperezd@udec.cl,2022
+EQM210230,FONDEQUIP,UNIVERSIDAD AUSTRAL DE CHILE,Región de Los Ríos,Otros,ABI3500XL GENETIC ANALYZER FOR SEQUENCE TYPING  FRAGMENT ANALYSIS,Applied Biosystems,3500XL,Andrea Silva,andrea.silva@uach.cl,2021
+EQM210225,FONDEQUIP,UNIVERSIDAD DEL BIO-BIO,Región del Bío-Bío,Otros,IMPRESORA 3D INDUSTRIAL BE MORE 3D,Be-More 3D,BEM 1 PRO 3D-7500,Claudia Munoz,clmunoz@ubiobio.cl,2021
+EQM210178,FONDEQUIP,UNIVERSIDAD DEL BIO-BIO,Región del Bío-Bío,Otros,REGENERATIVE GRID SIMULATOR,Chroma,61860 con función de carga AC 12804,Pedro Melin,pemelin@ubiobio.cl,2021
+EQM210168,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Cromatógrafos y Espectrómetros,ESPECTRÓMETRO DE MASAS,Sciex,TRIPLE CUADRUPOLO 4500 QTRAP®,Allisson Astuya,aastuya@udec.cl,2021
+EQM210122,FONDEQUIP,UNIVERSIDAD AUSTRAL DE CHILE,Región de Los Ríos,Otros,ANALIZADOR SEAHORSE,Agilent Technologies,SEAHORSE XF PRO ANALYZER,María Carretta,dcarreta@uach.cl,2021
+EQM210094,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Otros,PORTABLE GAS EXCHANGE FLUORESCENCE SYSTEM GFS-3000FL,WALZ,GFS 3000FL,Lohengrin Cavieres,lcaviere@udec.cl,2021
+EQM210074,FONDEQUIP,UNIVERSIDAD AUSTRAL DE CHILE,Región de Los Ríos,Otros,SUBMERSIBLE STEREO PIV SYSTEM,Dantec Dynamics,Submersible,Cristian Cifuentes,cristiancifuentes@uach.cl,2021
+EQM210073,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Otros,ANALIZADOR DE FLUORESCENCIA DE RAYOS X,Avaatech,XRF-CS 4th Generation,Roberto Urrutia,rurrutia@udec.cl,2021
+EQM210056,FONDEQUIP,UNIVERSIDAD DE LOS LAGOS,Región de los Lagos,Otros,ABSORCIÓMETRO DE ENERGIA DUAL DE RAYOS X IDEXA,GENERAL ELECTRIC MEDICAL SYSTEMS,01 H8615MA iDXA,Cristian Álvarez,nan,2021
+EQM200259,FONDEQUIP,UNIVERSIDAD AUSTRAL DE CHILE,Región de Los Ríos,Microscopios y Difractómetros,3I VIVO MULTI-PHOTON WITH 3 GAASP PMT'S,IIntelligent Imaging Innovations 3i,VIVO Multiphoton,Fabiola Sánchez,fabiolasanchez@uach.cl,2020
+EQM200228,FONDEQUIP,UNIVERSIDAD DE LA FRONTERA,Región de la Araucanía,Microscopios y Difractómetros,TISSUEFAXS I PLUS,TissueGnostics GmbH,TissueFAXS i PLUS,Nicolas Ottone,nicolas.ottone@ufrontera.cl,2020
+EQM200205,FONDEQUIP,INSTITUTO DE INVESTIGACIONES AGROPECUARIAS,Región del Bío-Bío,Instrumentos Bioanalíticos,PLATAFORMA DE PRESERVACIÓN DE GERMOPLASMA MICROBIANO Y VEGETAL,Kelvin International Corporation  Martin Christ,NL84-H  Alpha 1-4 LSCbasic,Jean Castro,jean.castro@inia.cl,2020
+EQM200138,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Microscopios y Difractómetros,DIFRACTÓMETRO DE RAYOS X DE MONOCRISTAL,Rigaku,XtaLAB Sinergy-s,Claudio Jimenez,cjimenez@udec.cl,2020
+EQM200098,FONDEQUIP,UNIVERSIDAD DEL BIO-BIO,Región del Bío-Bío,Instrumentos Bioanalíticos,TERMOFORESIS MICROESCALA,Nanotemper,Monolitn NTLabel Free,Julio Alarcón,jualarcon@ubiobio.cl,2020
+EQM200056,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Instrumentos Bioanalíticos,PLATAFORMA DE SECUENCIACIÓN MASIVA OXFORD NANOPORE TECHNOLOGIES ONT,Oxford Nanopore Technologies,GridION Mk1 = GRD-X5B003 MinION Mk1 = MIN-101C Flonge = ADP-FLG001 volTRAX v2 = VOL-V2002B,Felipe Aguilera,faguilera@udec.cl,2020
+EQM190142,FONDEQUIP,UNIVERSIDAD AUSTRAL DE CHILE,Región de Los Ríos,Cromatógrafos y Espectrómetros,Q-EXACTIVE PLUS,Thermo,Q-Exactive plus,Carlos Alvarez,carlos.alvarez@uach.cl,2019
+EQM190036,FONDEQUIP,UNIVERSIDAD AUSTRAL DE CHILE,Región de Los Ríos,Instrumentos Bioanalíticos,CELL SORTER FACSMELODY BECTON DICKINSON,Becton Dickinson,BD FACSMelody,Claudia Quezada,claudiaquezada@uach.cl,2019
+EQM190002,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Equipos de Procesamiento y ensayo de Materiales,NANOTRIBOINDENTADOR,HYSITRON BRUKER,TI PRIMIER,Manuel Melendrez,mmelendrez@udec.cl,2019
+EQM180230,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Instrumentos Bioanalíticos,MULTIFORS 2 OPTIMIZADO PARA SIMULACIÓN GASTRO-INTESTINAL,INFORS HT,Multifors 2,Karem Henríquez Aedo,karhenri@udec.cl,2018
+EQM180219,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Cromatógrafos y Espectrómetros,JASCO 1500,Jasco,1500,Maximiliano Figueroa,maxfigue@udec.cl,2018
+EQM180217,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Cromatógrafos y Espectrómetros,SISTEMA INTEGRADO CROMATÓGRAFO IÓNICO- ESPECTRÓMETRO DE MASAS POR PLASMA INDUCTIVAMENTE ACOPLADO,Thermo Fischer Sci,ICP/MS iCAP RQ - ICS 5000,CARLOS PEÑA,carlospena@udec.cl,2018
+EQM180201,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Equipos de Procesamiento y ensayo de Materiales,SISTEMA DE EXTRACCIÓN SUPERCRÍTICO Y SUBCRÍTICO,Applied Separations,Spe-ed Helix,Cristian Agurto,cagurto@udec.cl,2018
+EQM180173,FONDEQUIP,UNIVERSIDAD CATOLICA DE TEMUCO,Región de la Araucanía,Cromatógrafos y Espectrómetros,EQUIPO ESPECTROSCÓPICO DUAL LIBS-RAMAN,Unchained Labs,Hound,Haroldo Lledo,hlledo@uct.cl,2018
+EQM180139,FONDEQUIP,UNIVERSIDAD DE LOS LAGOS,Región de los Lagos,Microscopios y Difractómetros,MICROSCOPIO ELECTRÓNICO DE BARRIDO SEM Y MICROANÁLISIS ELEMENTAL EDS,Zeiss,EVO15,Carlos Aranda,caranda@ulagos.cl,2018
+EQM180111,FONDEQUIP,UNIVERSIDAD DE LA FRONTERA,Región de la Araucanía,Equipos de Procesamiento y ensayo de Materiales,MÁQUINA DE ENSAYOS SERVO HIDRÁULICA 8801 SERIE FAST TRACK 8800,Instron,8801,Renato Hunter,renato.hunter@ufrontera.cl,2018
+EQM180060,FONDEQUIP,UNIVERSIDAD AUSTRAL DE CHILE,Región de Los Ríos,Otros,RADAR DE PENETRACIÓN TERRESTRE MULTICANAL,Geophysical Survey Sistem GSSI / DJI,SIR 30 / SIR 4000 / Structure Scan Mini  Antenas  Unidad UAV DJI 210 RTK,Galo Valdebenito,gvaldebe@uach.cl,2018
+EQM180055,FONDEQUIP,UNIVERSIDAD AUSTRAL DE CHILE,Región de los Lagos,Instrumentos Bioanalíticos,ESCÁNER DE RESONANCIA MAGNÉTICA CUANTITATIVA,EchoMRI,EchoMRI-Bird™-Mobile with BA50™ and A10™ Inserts,Juan Gómez,jgnavedo@uach.cl,2018
+EQM180042,FONDEQUIP,UNIVERSIDAD AUSTRAL DE CHILE,Región de Los Ríos,Equipamiento de informática,EL PATAGÓN,Nvidia,DGX A100,Cristóbal Navarro,cnavarro@inf.uach.cl,2018
+EQM180037,FONDEQUIP,UNIVERSIDAD AUSTRAL DE CHILE,Región de Los Ríos,Microscopios y Difractómetros,MICROSCOPIO AUTOMÁTICO ROBOTIZADO,Zeiss,CellDiscoverer 7,Alejandro Rojas,alejandro.Rojas@uach.cl,2018
+EQM180008,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Instrumentos Bioanalíticos,EEG MOVE CON SISTEMA WIRELESS,Brain Products,BrainAmp Estándar con sistema Move,Mabel Urrutia,maurrutia@udec.cl,2018
+EQM170171,FONDEQUIP,UNIVERSIDAD DE LA FRONTERA,Región de la Araucanía,Instrumentos Bioanalíticos,SECUENCIADOR DE ADN,Applied Biosystems,3500 Genetic Analyzer,Milko Jorquera,milko.jorquera@ufrontera.cl,2017
+EQM170124,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Microscopios y Difractómetros,MICROSCOPIO ELECTRÓNICO DE BARRIDO,HITACHI,SU3500,Sebastian Muñoz Leal,sebamunoz@udec.cl,2017
+EQM170101,FONDEQUIP,UNIVERSIDAD AUSTRAL DE CHILE,Región de Los Ríos,Equipos de Procesamiento y ensayo de Materiales,SISTEMA DE ULTRAMICROTOMÍA,Leica,EM UC 7 / EM ACE 200 Au/Pd EM ACE 200 C EM TRIM2 S6D y EM KMR3,J Daniel Carpio,dcarpiop@uach.cl,2017
+EQM170077,FONDEQUIP,UNIVERSIDAD DEL BIO-BIO,Región del Bío-Bío,Cromatógrafos y Espectrómetros,CROMATÓGRAFO DE GASES Y PIROLIZADOR ACOPLADO A UN ESPECTRÓMETRO DE MASAS PY-GC/MS,Perkin Elmer,GC Clarus 690 MS SQ8,Serguei Alejandro,salejandro@ubiobio.cl,2017
+EQM170075,FONDEQUIP,UNIVERSIDAD DEL BIO-BIO,Región del Bío-Bío,Otros,ROBOT PARA CONSTRUCCIÓN IMPRESA,Kuka,Kuka KR120 R2500 y KL6000,Rodrigo Garcia,rgarcia@ubiobio.cl,2017
+EQM170065,FONDEQUIP,UNIVERSIDAD AUSTRAL DE CHILE,Región de Los Ríos,Otros,GENERADOR DE OLEAJE IRREGULAR,VTI Vázquez y Torres Ingenieniería S.L.,Generador oleaje irregular flap/pistón,Cristian Cifuentes,cristiancifuentes@uach.cl,2017
+EQM170023,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Cromatógrafos y Espectrómetros,CROMATÓGRAFO LÍQUIDO DE ULTRA-ALTO RENDIMIENTO ACOPLADO A UN ESPECTRÓMETRO DE MASAS DE ALTA RESOLUCIÓN DE CUADRUPOLO-TIEMPO DE VUELO HR-QQTOF-MS,Bruker,Compact QqTOF Bench-top,Claudia Mardones,cmardone@udec.cl,2017
+EQM160182,FONDEQUIP,UNIVERSIDAD AUSTRAL DE CHILE,Región de Los Ríos,Otros,MANIPULADOR DE NANOVOLÚMENES DE LÍQUIDO,TTP Lab Tech,Mosquito,Gonzalo Mardones Cofré,gonzalo.mardones@uach.cl,2016
+EQM160167,FONDEQUIP,UNIVERSIDAD DE LOS LAGOS,Región de los Lagos,Otros,BOYA OCEANOGRÁFICA Y METEOROLÓGICA,OSIL 1.9m,Fulmar,Iván Pérez,ivanperez@udec.cl,2016
+EQM160152,FONDEQUIP,UNIVERSIDAD CATOLICA DE TEMUCO,Región de la Araucanía,Microscopios y Difractómetros,DIFRACTOMETRO DE RAYOS X,Rigaku,SmartLab,Hector Pesenti,hpesenti@uct.cl,2016
+EQM160100,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Equipos de Procesamiento y ensayo de Materiales,FLUORESCENCIA DE RAYOS X DE REFLEXIÓN TOTAL,Bruker,S4 Tstar/800,José Neira,yneira@udec.cl,2016
+EQM160059,FONDEQUIP,UNIVERSIDAD DE LA FRONTERA,Región de la Araucanía,Instrumentos Bioanalíticos,CITÓMETRO DE FLUJO CELL SORTER,Beckton Dickinson,FACS Aria Fusion,RICARDO FELMER,ricardo.felmer@ufrontera.cl,2016
+EQM160054,FONDEQUIP,UNIVERSIDAD DE LA FRONTERA,Región de la Araucanía,Cromatógrafos y Espectrómetros,ESPECTROMETRO DE MASAS MALDI-TOF MS/MS,BRUKER,AUTOFLEX SPEED,Cledir Santos,cledir.santos@ufrontera.cl,2016
+EQM160050,FONDEQUIP,UNIVERSIDAD AUSTRAL DE CHILE,Región de Los Ríos,Microscopios y Difractómetros,CONFOCAL RAMAN IMAGEN / MICROSCOPÍA DE FUERZA ATÓMICA,WITec,Alpha 300 RA,Loreto Troncoso Aguilera,loreto.troncoso@uach.cl,2016
+EQM160015,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Otros,ARREGLO DE SISMÓMETROS,Guralp,Radian/ 6T,Gonzalo Montalva,gmontalva@udec.cl,2016
+EQM150139,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Microscopios y Difractómetros,MICROSCOPIO DE FUERZA ATÓMICA ACOPLADO CON ESPECTROSCOPIA RAMAN AFM-RAMAN,HORIBA,LabRAM nano 800 HR Evolution,manuel melendrez,mmelendrez@udec.cl,2015
+EQM150134,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Equipamiento de informática,CLUSTER GPU,ExxactCorp,"TXR412-
+512R",Alexis Salas,alsalas@udec.cl,2015
+EQM150128,FONDEQUIP,UNIVERSIDAD DE LA FRONTERA,Región de la Araucanía,Cromatógrafos y Espectrómetros,CROMATOGRAFO DE GASES ACOPLADO A ESPECTROMETRO DE MASA CON DETECTOR FID E INTERFASE PARA ACOPLAR A TGA-DSC,Perkin Elmer,Clarus 680 GC Clarus SQ8T MS y TL8500 interfase,Maria de La Luz Mora,mariluz.mora@ufrontera.cl,2015
+EQM150126,FONDEQUIP,UNIVERSIDAD DE LA FRONTERA,Región de la Araucanía,Instrumentos Bioanalíticos,SECUENCIADOR NGS MISEQ SYSTEM,Illumina,MiSeq System,Luis Salazar,lsalazar@ufro.cl,2015
+EQM150118,FONDEQUIP,UNIVERSIDAD AUSTRAL DE CHILE,Región de Los Ríos,Microscopios y Difractómetros,MICROSCOPIO SPINNING DISK,Leica,DMi8,José Sarmiento Vargas,jsarmien@uach.cl,2015
+EQM150114,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Otros,MÁQUINA DE PROTOTIPADO LASER DE CIRCUITOS ELECTRÓNICOS,LPKF,ProtoLaser S,Pablo Aqueveque,paaqueve@udec.cl,2015
+EQM150108,FONDEQUIP,UNIVERSIDAD AUSTRAL DE CHILE,Región de Los Ríos,Otros,CÁMARA ACÚSTICA BEAMFORMING SYSTEM,Bruel  Kjaer,Outdoor sources system y otros componentes,Enrique Suárez,enriquesuarez@uach.cl,2015
+EQM150107,FONDEQUIP,UNIVERSIDAD AUSTRAL DE CHILE,Región de Los Ríos,Cromatógrafos y Espectrómetros,ESPECTRÓMETRO DE MASAS CON PLASMA ACOPLADO POR INDUCCIÓN DE TIPO CUADRUPOLO,Thermo Fisher Scientific,iCAP RQ,Alexandre Corgne,alexandre.corgne@uach.cl,2015
+EQM150103,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Otros,ANALIZADOR TÉRMICO DE MATERIALES,MICROMERITICS,AutoChem II - MS Cirrus 2 MKS,Catherine Sepúlveda M.,cathsepulveda@udec.cl,2015
+EQM150097,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Instrumentos Bioanalíticos,EQUIPO DE TERMOFORESIS MICROESCALA,NanoTemper Technologies GmbH,Monolith NT.115Pico,Oliberto Sánchez,osanchez@udec.cl,2015
+EQM150090,FONDEQUIP,UNIVERSIDAD AUSTRAL DE CHILE,Región de Los Ríos,Equipos de Procesamiento y ensayo de Materiales,PRENSA UNIVERSAL SERVO-HIDRAULICA DE ENSAYOS DINÁMICOS,CONTROLS- IPC Global,IPC Global UTM-30,Aitor Raposeiras,aitor.raposeiras@uach.cl,2015
+EQM150078,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Otros,SISTEMA DE AVANCE FRONTAL VRI,VALLEY,8120,Luis Lagos,octaviolagos@udec.cl,2015
+EQM150067,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Cromatógrafos y Espectrómetros,UHPLC-DAD-MS/MS,SHIMADZU,LCMS-8030,Christian  Folch,cfolch@ciq.uchile.cl,2015
+EQM150061,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Instrumentos Bioanalíticos,CITÓMETRO DE FLUJO BD LSRFORTESSA X-20,Becton Dickinson,LSRFortessa X-20,Angel Oñate,aonate@udec.cl,2015
+EQM150053,FONDEQUIP,UNIVERSIDAD AUSTRAL DE CHILE,Región de Los Ríos,Cromatógrafos y Espectrómetros,UHPLC-MS/MS,AGILENT,6460,Rafael Burgos,rburgos1@uach.cl,2015
+EQM150051,FONDEQUIP,UNIVERSIDAD AUSTRAL DE CHILE,Región de Los Ríos,Equipos de Procesamiento y ensayo de Materiales,ESCANER LASER TERRESTRE TLS,RIEGL,VZ-2000,Galo Valdebenito,gvaldebe@uach.cl,2015
+EQM150036,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Otros,ULTRACENTRÍFUGA PREPARATIVA,HITACHI,CP80NX,Lleretny Rodriguez,llrodriguez@udec.cl,2015
+EQM150034,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Instrumentos Bioanalíticos,ANALIZADOR DE NANOPARTÍCULAS NTA,MALVERN,Nanosight NS300,FIDEL CASTRO,fidcastro@udec.cl,2015
+EQM150032,FONDEQUIP,UNIVERSIDAD AUSTRAL DE CHILE,Región de Los Ríos,Instrumentos Bioanalíticos,SECUENCIADOR DE ADN,Appield Biosystems,PRISM 3500,Leyla Cárdenas,leylacardenas@uach.cl,2015
+EQM150029,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Otros,SIMULADOR DE CONDUCCION SIMESCAR,Simumak,Simescar,Tomas Echaveguren,techaveg@udec.cl,2015
+EQM150025,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Cromatógrafos y Espectrómetros,CROMATOGRAFO EN CONTRA-CORRIENTE LÍQUIDO-LIQUIDO DE LECHO MÓVIL VERDADERO TMB,Armen,TMB-500,Sigrid Mennickent Cid,smennick@udec.cl,2015
+EQM150019,FONDEQUIP,UNIVERSIDAD AUSTRAL DE CHILE,Región de Los Ríos,Cromatógrafos y Espectrómetros,SISTEMA IMÁGENES QUÍMICAS FTIR,PerkinElmer,FTIR Frontier/Spotlight 400,Aldo Rolleri,arolleri@uach.cl,2015
+EQM150018,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Cromatógrafos y Espectrómetros,ANALIZADOR ELEMENTAL ACOPLADO A ESPECTRÓMETRO DE MASA DE RAZÓN ISOTOPICA EA-IRMS,Sercon - Eurovector,GSL  2020 IRMS,RAFAEL RUBILAR,rafaelrubilar@udec.cl,2015
+EQM140169,FONDEQUIP,UNIVERSIDAD DE LA FRONTERA,Región de la Araucanía,Microscopios y Difractómetros,ULTRAMICROTOMO,LEICA,EM UC7,María Mora,mariluz.mora@ufrontera.cl,2014
+EQM140148,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Equipos de Procesamiento y ensayo de Materiales,EMULADOR EN TIEMPO REAL,OPAL-RT,OP4500/5607,José Espinoza,jose.espinoza@udec.cl,2014
+EQM140146,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Microscopios y Difractómetros,ESTEREOMICROSCOPIO DE FLUORESCENCIA,CARL ZEISS,AxioZoom.V16 con sistema Apotome.2,Fabián Segovia Miranda,fabiansegovia@udec.cl,2014
+EQM140134,FONDEQUIP,UNIVERSIDAD DE CHILE,Región del Bío-Bío,Otros,PLATAFORMA DE OBSERVACIÓN SISTEMA ACOPLADO OCÉANO-ATMÓSFERA POSAR,Varias,Integración de varios sensores Campbell  Seacat,René Garreaud,rgarreau@dgf.uchile.cl,2014
+EQM140116,FONDEQUIP,UNIVERSIDAD AUSTRAL DE CHILE,Región de Los Ríos,Otros,MICROCALORÍMETRO,Malvern,PEAQ-ITC,Gonzalo Mardones Cofré,gonzalo.mardones@uach.cl,2014
+EQM140111,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Equipos de Procesamiento y ensayo de Materiales,AUTOCLAVE DOBLE PUERTA CON GENERADOR INCLUIDO,MATACHANA,1010E-2 I,Luis Aguayo,laguayo@udec.cl,2014
+EQM140104,FONDEQUIP,UNIVERSIDAD DEL BIO-BIO,Región del Bío-Bío,Otros,PERICAM PSI HR,Perimed,PeriCam PSI HR,Carlos Escudero,cescudero@ubiobio.cl,2014
+EQM140088,FONDEQUIP,UNIVERSIDAD DEL BIO-BIO,Región del Bío-Bío,Microscopios y Difractómetros,MICROSCOPIO ELECTRÓNICO DE BARRIDO SEM,Hitachi,SU3500,Gerardo Cabello,gcabello@ubiobio.cl,2014
+EQM140075,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Cromatógrafos y Espectrómetros,ESPECTROMETRO DE RESONANCIA PARAMAGNETICA DE  SPIN ELECTRONICO EPR,Bruker,EMXmicro-6/1/S/L SYSTEM,David Contreras,dcontrer@udec.cl,2014
+EQM140065,FONDEQUIP,UNIVERSIDAD AUSTRAL DE CHILE,Región de Los Ríos,Microscopios y Difractómetros,MICROSCOPIO CONFOCAL LÁSER 3D PARA MATERIALES,Carl Zeiss,LSM700/Axioimager Z2m,Alfredo Aguilera,aguilera@uach.cl,2014
+EQM140034,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Equipos de Procesamiento y ensayo de Materiales,REÓMETRO HÍBRIDO DHR-3,TA-Instruments,DHR-3,Bruno Urbano C.,burbano@udec.cl,2014
+EQM140029,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Equipos de Procesamiento y ensayo de Materiales,RED MÚLTIPLE MOCNESS,Mocness,Múltiple 10m2,HERACLIO ESCRIBANO,rescribano@udec.cl,2014
+EQM130257,FONDEQUIP,UNIVERSIDAD AUSTRAL DE CHILE,Región de Los Ríos,Cromatógrafos y Espectrómetros,CROMATOGRAFO DE GASES CON DETECTOR SELECTIVO DE MASAS,Agilent Technologies,MSD 5971A / GC 7890B,Rafael Burgos,rburgos1@uach.cl,2013
+EQM130236,FONDEQUIP,UNIVERSIDAD DEL BIO-BIO,Región del Bío-Bío,Equipos de Procesamiento y ensayo de Materiales,SECADOR FLEXIBLE DE MADERAS,Neumann,LAB-3.5e,Rubén ANANIAS,ananias@ubiobio.cl,2013
+EQM130209,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Cromatógrafos y Espectrómetros,ESPECTRÓMETRO DE MASAS. LC/MS/MS CON INTERFACE HPTLC/MS/MS,Shimadzu,LC-30A NEXERA unido a Detector Masa triple cuadrupolo LCMS-8030,Mario Aranda,maranda@udec.cl,2013
+EQM130208,FONDEQUIP,UNIVERSIDAD AUSTRAL DE CHILE,Región de Los Ríos,Otros,PLATAFORMA DE ANÁLISIS DE IMÁGENES EN ANIMALES IN VIVO PARA EL ESTUDIO DE LA PATOGÉNESIS DE ENFERMEDADES,LICOR,ODYSSEY CLx.,Rody San Martín,rodysanmartin@uach.cl,2013
+EQM130202,FONDEQUIP,UNIVERSIDAD AUSTRAL DE CHILE,Región de Los Ríos,Otros,LISÍMETRO DE ALTA RESOLUCIÓN,UMS,SCIENCE LYSIMETER SOFILY,Dorota Dec,dorota.dec@uach.cl,2013
+EQM130167,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Instrumentos Bioanalíticos,CITOMETRO DE FLUJO,Attune,AFC2,Lleretny Rodriguez,llrodriguez@udec.cl,2013
+EQM130156,FONDEQUIP,UNIVERSIDAD DE LA FRONTERA,Región de la Araucanía,Instrumentos Bioanalíticos,ANALIZADOR TERMO-GRAVIMÉTRICO CON CALORIMETRÍA DIFERENCIAL DE BARRIDO  TGA-DSC,Perkin Elmer,STA 6000,Rodrigo Navia,rnavia@ufro.cl,2013
+EQM130137,FONDEQUIP,UNIVERSIDAD AUSTRAL DE CHILE,Región de Los Ríos,Instrumentos Bioanalíticos,SECUENCIADOR DE TRANSCRIPTOMAS,ILLUMINA,MISEQ SYSTEM V2,Juan Opazo,jopazo@uach.cl,2013
+EQM130103,FONDEQUIP,UNIVERSIDAD DE CONCEPCION,Región del Bío-Bío,Equipos de Procesamiento y ensayo de Materiales,PRENSA CALIENTE,GT Advanced Technologies Limited,MODEL HP20-4560-20 FURNACE SYSTEM,Felipe Sanhueza Gómez,fesanhueza@udec.cl,2013
+EQM130045,FONDEQUIP,UNIVERSIDAD DE LA FRONTERA,Región de la Araucanía,Equipos de Procesamiento y ensayo de Materiales,NANO SPRAY DRYER SECADOR POR ATOMIZACIÓN ESCALA NANO,Buchi,Nano spray dryer B90,Mónica Rubilar,monica.rubilar@ufrontera.cl,2013

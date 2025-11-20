@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Equipos por tipo (Región de Los Ríos)</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <style>
+        :root {
+            --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        body {
+            margin: 0;
+            font-family: var(--font-family);
+            background-color: var(--page-bg);
+            color: var(--text-color);
+            transition: background-color 0.25s ease, color 0.25s ease;
+        }
+        body[data-theme='light'] {
+            --page-bg: #f5f3ff;
+            --panel-bg: #ffffff;
+            --text-color: #0f172a;
+            --muted-color: #475569;
+            --button-bg: #ffffff;
+            --button-border: #cbd5f5;
+            --button-text: #0f172a;
+        }
+        body[data-theme='dark'] {
+            --page-bg: #0f172a;
+            --panel-bg: #111827;
+            --text-color: #e2e8f0;
+            --muted-color: #94a3b8;
+            --button-bg: #1f2937;
+            --button-border: #334155;
+            --button-text: #e2e8f0;
+        }
+        .dashboard {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 32px 24px 48px;
+        }
+        .card {
+            background: var(--panel-bg);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 10px 35px rgba(15, 23, 42, 0.15);
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+        h1 {
+            margin: 0;
+            font-size: clamp(1.2rem, 2vw, 1.6rem);
+        }
+        p.subtitle {
+            margin: 4px 0 0;
+            color: var(--muted-color);
+            font-size: 0.95rem;
+        }
+        #themeToggle {
+            border: 1px solid var(--button-border);
+            background: var(--button-bg);
+            color: var(--button-text);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.15s ease, background-color 0.15s ease;
+            padding: 0;
+        }
+        #themeToggle::before { content: '☀'; }
+        #themeToggle[data-icon="moon"]::before { content: '☾'; }
+        #themeToggle:hover { transform: translateY(-1px); }
+        #container { min-height: 520px; }
+    </style>
+</head>
+<body data-theme="light">
+    <div class="dashboard">
+        <div class="card">
+            <div class="header">
+                <div>
+                    <h1>Equipos por tipo</h1>
+                    <p class="subtitle">Región de Los Ríos — Distribución de unidades por categoría FONDEQUIP.</p>
+                </div>
+                <button id="themeToggle" type="button" aria-label="Activar tema oscuro" data-icon="sun"></button>
+            </div>
+            <div id="container"></div>
+        </div>
+    </div>
+    <script>
+        const categories = ["Otros", "Cromatógrafos y Espectrómetros", "Microscopios y Difractómetros", "Equipos de Procesamiento y ensayo de Materiales", "Instrumentos Bioanalíticos", "Equipamiento de informática"];
+        const values = [12, 5, 5, 3, 3, 1];
+        const palette = ["#db2777", "#f97316", "#facc15", "#22c55e", "#0ea5e9", "#a855f7", "#14b8a6", "#6366f1"];
+
+        const baseOptions = {
+            chart: {
+                type: 'bar',
+                backgroundColor: 'var(--panel-bg)'
+            },
+            title: { text: null },
+            subtitle: { text: null },
+            colors: palette,
+            xAxis: {
+                categories,
+                title: { text: null },
+                gridLineWidth: 1,
+                lineWidth: 0
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Equipos',
+                    align: 'high'
+                },
+                labels: { overflow: 'justify' },
+                gridLineWidth: 0
+            },
+            tooltip: {
+                valueSuffix: ' equipos'
+            },
+            plotOptions: {
+                bar: {
+                    borderRadius: 12,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.y:.0f}'
+                    },
+                    groupPadding: 0.08
+                }
+            },
+            legend: { enabled: false },
+            credits: { enabled: false },
+            series: [{
+                name: 'Equipos',
+                data: values,
+                colorByPoint: true
+            }]
+        };
+
+        const themes = {
+            light: {
+                xAxis: {
+                    labels: { style: { color: '#0f172a' } },
+                    gridLineColor: 'rgba(15,23,42,0.08)'
+                },
+                yAxis: {
+                    labels: { style: { color: '#0f172a' } },
+                    title: { style: { color: '#0f172a' } }
+                },
+                tooltip: { backgroundColor: '#ffffff', style: { color: '#0f172a' } }
+            },
+            dark: {
+                xAxis: {
+                    labels: { style: { color: '#e2e8f0' } },
+                    gridLineColor: 'rgba(226,232,240,0.15)'
+                },
+                yAxis: {
+                    labels: { style: { color: '#e2e8f0' } },
+                    title: { style: { color: '#e2e8f0' } }
+                },
+                tooltip: { backgroundColor: '#1e293b', style: { color: '#e2e8f0' } }
+            }
+        };
+
+        let currentTheme = 'light';
+
+        function renderChart(themeKey) {
+            const options = Highcharts.merge({}, baseOptions, themes[themeKey]);
+            if (window.losRiosTipoChart) {
+                window.losRiosTipoChart.update(options, true, true);
+            } else {
+                window.losRiosTipoChart = Highcharts.chart('container', options);
+            }
+        }
+
+        renderChart(currentTheme);
+
+        const toggleBtn = document.getElementById('themeToggle');
+
+        function syncToggleState(theme) {
+            if (theme === 'light') {
+                toggleBtn.dataset.icon = 'sun';
+                toggleBtn.setAttribute('aria-label', 'Activar tema oscuro');
+            } else {
+                toggleBtn.dataset.icon = 'moon';
+                toggleBtn.setAttribute('aria-label', 'Activar tema claro');
+            }
+        }
+
+        syncToggleState(currentTheme);
+
+        toggleBtn.addEventListener('click', () => {
+            currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.body.setAttribute('data-theme', currentTheme);
+            syncToggleState(currentTheme);
+            renderChart(currentTheme);
+        });
+    </script>
+</body>
+</html>

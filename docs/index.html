@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipamiento FONDEQUIP · Región de Los Ríos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Principal -->
+    <header class="main-header">
+        <div class="logos-container">
+            <img src="thumbnail_Logo observa.png" alt="Universidad Austral de Chile - Centro de Estudios Regionales" class="header-logo-left">
+            <img src="thumbnail_images.png" alt="Logo Región" class="header-logo">
+        </div>
+        <div class="header-content">
+            <h1 class="main-title" id="main-title">Observatorio FONDEQUIP · Región de Los Ríos</h1>
+            <p class="subtitle" id="subtitle">Universidad Austral de Chile — Centro de Estudios Regionales</p>
+        </div>
+    </header>
+    
+    <!-- Navegación -->
+    <nav class="nav-container">
+        <div class="nav-links" id="nav-links">
+            <button type="button" class="nav-link active" data-section="equipos-region">Equipos por región</button>
+            <button type="button" class="nav-link" data-section="tipos-los-rios">Tipos de equipamiento</button>
+            <button type="button" class="nav-link" data-section="instituciones-los-rios">Instituciones coordinadoras</button>
+            <button type="button" class="nav-link" data-section="evolucion-los-rios">Evolución anual</button>
+            <button type="button" class="nav-link" data-section="treemap-los-rios">Relación tipo-equipo</button>
+        </div>
+    </nav>
+    
+    <!-- Container Principal -->
+    <div class="container">
+        <section id="equipos-region" class="section active">
+            <h2 class="section-title">Equipos por región de instalación</h2>
+            <div class="chart-section">
+                <iframe src="region_instalacion_highcharts.html" title="Distribución regional de equipos FONDEQUIP" loading="lazy" style="width: 100%; min-height: 640px; border: 1px solid #e8e8e8; border-radius: 12px;"></iframe>
+            </div>
+        </section>
+
+        <section id="tipos-los-rios" class="section">
+            <h2 class="section-title">Tipos de equipamiento — Región de Los Ríos</h2>
+            <div class="chart-section">
+                <iframe src="los_rios_tipo_highcharts.html" title="Distribución por tipo de equipamiento" loading="lazy" style="width: 100%; min-height: 640px; border: 1px solid #e8e8e8; border-radius: 12px;"></iframe>
+            </div>
+        </section>
+
+        <section id="instituciones-los-rios" class="section">
+            <h2 class="section-title">Instituciones coordinadoras — Región de Los Ríos</h2>
+            <div class="chart-section">
+                <iframe src="los_rios_institucion_highcharts.html" title="Equipos por institución coordinadora" loading="lazy" style="width: 100%; min-height: 640px; border: 1px solid #e8e8e8; border-radius: 12px;"></iframe>
+            </div>
+        </section>
+
+        <section id="evolucion-los-rios" class="section">
+            <h2 class="section-title">Evolución anual de equipos — Región de Los Ríos</h2>
+            <div class="chart-section">
+                <iframe src="los_rios_evolucion_highcharts.html" title="Evolución temporal de proyectos FONDEQUIP" loading="lazy" style="width: 100%; min-height: 640px; border: 1px solid #e8e8e8; border-radius: 12px;"></iframe>
+            </div>
+        </section>
+
+        <section id="treemap-los-rios" class="section">
+            <h2 class="section-title">Relación tipo y equipo — Región de Los Ríos</h2>
+            <div class="chart-section">
+                <iframe src="los_rios_treemap_highcharts.html" title="Treemap equipamiento Los Ríos" loading="lazy" style="width: 100%; min-height: 680px; border: 1px solid #e8e8e8; border-radius: 12px;"></iframe>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text" id="footer-text">
+            Desarrollado con Plantilla de Visualización<br>
+            Universidad Austral de Chile - Centro de Estudios Regionales
+        </p>
+        <img src="thumbnail_logo cer.png" alt="Universidad Austral de Chile - Centro de Estudios Regionales" class="footer-logo">
+    </footer>
+
+    <!-- Tooltip global -->
+    <div class="tooltip" id="tooltip"></div>
+
+    <script src="interactive.js"></script>
+    <script>
+        (function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.section');
+
+            function activate(sectionId) {
+                navLinks.forEach(link => link.classList.toggle('active', link.dataset.section === sectionId));
+                sections.forEach(section => section.classList.toggle('active', section.id === sectionId));
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    const targetId = link.dataset.section;
+                    activate(targetId);
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

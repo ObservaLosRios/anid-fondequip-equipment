@@ -1,0 +1,33 @@
+dataset:
+  raw_path: data/raw/fondequip_5y_chile.csv
+  delimiter: ","
+  encoding: utf-8
+outputs:
+  clean_table: data/processed/fondequip_clean.csv
+  summary_by_region: data/processed/fondequip_resumen_region.csv
+  summary_by_type: data/processed/fondequip_resumen_tipo.csv
+  summary_by_year: data/processed/fondequip_resumen_anio.csv
+processing:
+  normalize_ascii: true
+  string_columns:
+    - Folio
+    - Programa
+    - Institución
+    - Región Instalación del Equipo
+    - Tipo de Equipamiento
+    - Equipo
+    - Marca
+    - Modelo
+    - Coordinador Responsable
+    - Email
+  column_aliases:
+    Folio: folio
+    Programa: programa
+    Institución: institucion
+    "Región Instalación del Equipo": region_instalacion
+    "Tipo de Equipamiento": tipo_equipamiento
+    Equipo: equipo
+    Marca: marca
+    Modelo: modelo
+    "Coordinador Responsable": coordinador
+    Email: email
