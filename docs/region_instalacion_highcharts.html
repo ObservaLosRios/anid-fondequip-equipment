@@ -5,19 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Equipos por región de instalación</title>
     <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <style>
         :root {
             --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        }
-        body {
-            margin: 0;
-            font-family: var(--font-family);
-            background-color: var(--page-bg);
-            color: var(--text-color);
-            transition: background-color 0.25s ease, color 0.25s ease;
-        }
-        body[data-theme='light'] {
-            --page-bg: #f3f4f6;
+            --page-bg: #ffffff;
             --panel-bg: #ffffff;
             --text-color: #0f172a;
             --muted-color: #475569;
@@ -25,33 +18,37 @@
             --button-border: #cbd5f5;
             --button-text: #0f172a;
         }
-        body[data-theme='dark'] {
-            --page-bg: #0f172a;
-            --panel-bg: #111827;
-            --text-color: #e2e8f0;
-            --muted-color: #94a3b8;
-            --button-bg: #1f2937;
-            --button-border: #334155;
-            --button-text: #e2e8f0;
+        body {
+            margin: 0;
+            font-family: var(--font-family);
+            background: var(--page-bg);
+            color: var(--text-color);
         }
         .dashboard {
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 32px 24px 48px;
+            width: 100%;
+            max-width: none;
+            margin: 0;
+            padding: 0;
         }
         .card {
             background: var(--panel-bg);
-            border-radius: 16px;
-            padding: 24px;
-            box-shadow: 0 10px 35px rgba(15, 23, 42, 0.15);
+            border-radius: 0;
+            padding: 0;
+            box-shadow: none;
         }
         .header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             gap: 16px;
             flex-wrap: wrap;
-            margin-bottom: 16px;
+            padding: 20px 24px 0;
+            margin-bottom: 12px;
+        }
+        .header-actions {
+            position: relative;
+            display: flex;
+            align-items: center;
         }
         h1 {
             margin: 0;
@@ -62,38 +59,66 @@
             color: var(--muted-color);
             font-size: 0.95rem;
         }
-        #themeToggle {
-            border: 1px solid var(--button-border);
-            background: var(--button-bg);
-            color: var(--button-text);
-            border-radius: 50%;
-            width: 44px;
-            height: 44px;
+        #exportToggle {
+            border: 1px solid rgba(0, 0, 0, 0.25);
+            background: #f7f7f7;
+            color: rgba(0, 0, 0, 0.75);
+            border-radius: 2px;
+            width: 30px;
+            height: 30px;
             display: grid;
             place-items: center;
-            font-size: 1.15rem;
+            font-size: 16px;
             cursor: pointer;
-            transition: transform 0.15s ease, background-color 0.15s ease;
             padding: 0;
+            line-height: 1;
         }
-        #themeToggle::before {
-            content: '☀';
+        #exportToggle:hover {
+            background: #e6e6e6;
         }
-        #themeToggle[data-icon="moon"]::before {
-            content: '☾';
+        #exportToggle::before { content: '☰'; }
+        #exportMenu {
+            position: absolute;
+            top: 34px;
+            right: 0;
+            min-width: 200px;
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.25);
+            border-radius: 2px;
+            padding: 5px 0;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+            display: none;
+            z-index: 10;
         }
-        #themeToggle:hover {
-            transform: translateY(-1px);
+        #exportMenu[data-open="true"] { display: block; }
+        #exportMenu button {
+            width: 100%;
+            text-align: left;
+            border: 0;
+            background: transparent;
+            color: rgba(0, 0, 0, 0.85);
+            padding: 6px 12px;
+            border-radius: 0;
+            cursor: pointer;
+            font: inherit;
+            font-size: 12px;
+            line-height: 1.3;
+        }
+        #exportMenu button:hover {
+            background: #f2f2f2;
+        }
+        .export-separator {
+            height: 1px;
+            background: #e6e6e6;
+            margin: 5px 0;
         }
         #container {
+            width: 100%;
             min-height: 560px;
-        }
-        .highcharts-background {
-            fill: var(--panel-bg);
         }
     </style>
 </head>
-<body data-theme="light">
+<body>
     <div class="dashboard">
         <div class="card">
             <div class="header">
@@ -101,7 +126,22 @@
                     <h1>Equipos por región</h1>
                     <p class="subtitle">Total de equipos FONDEQUIP por región de instalación (último ETL).</p>
                 </div>
-                <button id="themeToggle" type="button" aria-label="Activar tema oscuro" data-icon="sun"></button>
+                <div class="header-actions">
+                    <button id="exportToggle" type="button" aria-label="Descargar" title="Descargar"></button>
+                    <div id="exportMenu" role="menu" aria-label="Opciones de descarga">
+                        <button type="button" id="exportFullscreen" role="menuitem">View in full screen</button>
+                        <button type="button" id="exportPrint" role="menuitem">Print chart</button>
+                        <div class="export-separator" role="separator"></div>
+                        <button type="button" id="exportPNG" role="menuitem">Download PNG image</button>
+                        <button type="button" id="exportJPEG" role="menuitem">Download JPEG image</button>
+                        <button type="button" id="exportSVG" role="menuitem">Download SVG vector image</button>
+                        <div class="export-separator" role="separator"></div>
+                        <button type="button" id="exportCSV" role="menuitem">Download CSV</button>
+                        <button type="button" id="exportXLS" role="menuitem">Download XLS</button>
+                        <div class="export-separator" role="separator"></div>
+                        <button type="button" id="exportViewData" role="menuitem">View data table</button>
+                    </div>
+                </div>
             </div>
             <div id="container"></div>
         </div>
@@ -114,13 +154,20 @@
         const baseOptions = {
             chart: {
                 type: 'bar',
-                backgroundColor: 'var(--panel-bg)'
+                backgroundColor: 'transparent',
+                reflow: false
             },
             title: {
                 text: null
             },
             subtitle: {
                 text: null
+            },
+            exporting: {
+                enabled: true,
+                buttons: {
+                    contextButton: { enabled: false }
+                }
             },
             colors: palette,
             xAxis: {
@@ -175,69 +222,81 @@
             }]
         };
 
-        const themes = {
-            light: {
-                title: { style: { color: '#0f172a' } },
-                subtitle: { style: { color: '#475569' } },
-                xAxis: {
-                    labels: { style: { color: '#0f172a' } },
-                    gridLineColor: 'rgba(15,23,42,0.08)'
-                },
-                yAxis: {
-                    labels: { style: { color: '#0f172a' } },
-                    title: { style: { color: '#0f172a' } }
-                },
-                legend: { itemStyle: { color: '#0f172a' } },
-                tooltip: { backgroundColor: '#ffffff', style: { color: '#0f172a' } }
-            },
-            dark: {
-                title: { style: { color: '#e2e8f0' } },
-                subtitle: { style: { color: '#94a3b8' } },
-                xAxis: {
-                    labels: { style: { color: '#e2e8f0' } },
-                    gridLineColor: 'rgba(226,232,240,0.15)'
-                },
-                yAxis: {
-                    labels: { style: { color: '#e2e8f0' } },
-                    title: { style: { color: '#e2e8f0' } }
-                },
-                legend: { itemStyle: { color: '#e2e8f0' } },
-                tooltip: { backgroundColor: '#1e293b', style: { color: '#e2e8f0' } }
-            }
-        };
+        window.regionChart = Highcharts.chart('container', baseOptions);
 
-        let currentTheme = 'light';
-
-        function renderChart(themeKey) {
-            const options = Highcharts.merge({}, baseOptions, themes[themeKey]);
-            if (window.regionChart) {
-                window.regionChart.update(options, true, true);
-            } else {
-                window.regionChart = Highcharts.chart('container', options);
-            }
+        function resizeFrame() {
+            if (!window.frameElement) return;
+            const doc = document.documentElement;
+            const body = document.body;
+            const height = Math.max(
+                doc ? doc.scrollHeight : 0,
+                body ? body.scrollHeight : 0
+            );
+            if (height) window.frameElement.style.height = `${height}px`;
         }
 
-        renderChart(currentTheme);
+        const exportToggle = document.getElementById('exportToggle');
+        const exportMenu = document.getElementById('exportMenu');
 
-        const toggleBtn = document.getElementById('themeToggle');
-
-        function syncToggleState(theme) {
-            if (theme === 'light') {
-                toggleBtn.dataset.icon = 'sun';
-                toggleBtn.setAttribute('aria-label', 'Activar tema oscuro');
-            } else {
-                toggleBtn.dataset.icon = 'moon';
-                toggleBtn.setAttribute('aria-label', 'Activar tema claro');
-            }
+        function setMenuOpen(isOpen) {
+            exportMenu.dataset.open = isOpen ? 'true' : 'false';
         }
 
-        syncToggleState(currentTheme);
+        exportToggle.addEventListener('click', (event) => {
+            event.stopPropagation();
+            setMenuOpen(exportMenu.dataset.open !== 'true');
+        });
 
-        toggleBtn.addEventListener('click', () => {
-            currentTheme = currentTheme === 'light' ? 'dark' : 'light';
-            document.body.setAttribute('data-theme', currentTheme);
-            syncToggleState(currentTheme);
-            renderChart(currentTheme);
+        document.addEventListener('click', () => setMenuOpen(false));
+
+        document.getElementById('exportFullscreen').addEventListener('click', (event) => {
+            event.stopPropagation();
+            setMenuOpen(false);
+            const chart = window.regionChart;
+            if (chart.fullscreen && typeof chart.fullscreen.toggle === 'function') {
+                chart.fullscreen.toggle();
+            } else if (document.documentElement && document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            }
+        });
+
+        document.getElementById('exportPrint').addEventListener('click', (event) => {
+            event.stopPropagation();
+            setMenuOpen(false);
+            window.regionChart.exporting.print();
+        });
+
+        document.getElementById('exportPNG').addEventListener('click', (event) => {
+            event.stopPropagation();
+            setMenuOpen(false);
+            window.regionChart.exporting.exportChart({ type: 'image/png' });
+        });
+        document.getElementById('exportJPEG').addEventListener('click', (event) => {
+            event.stopPropagation();
+            setMenuOpen(false);
+            window.regionChart.exporting.exportChart({ type: 'image/jpeg' });
+        });
+        document.getElementById('exportSVG').addEventListener('click', (event) => {
+            event.stopPropagation();
+            setMenuOpen(false);
+            window.regionChart.exporting.exportChart({ type: 'image/svg+xml' });
+        });
+        document.getElementById('exportCSV').addEventListener('click', (event) => {
+            event.stopPropagation();
+            setMenuOpen(false);
+            window.regionChart.exporting.downloadCSV();
+        });
+        document.getElementById('exportXLS').addEventListener('click', (event) => {
+            event.stopPropagation();
+            setMenuOpen(false);
+            window.regionChart.exporting.downloadXLS();
+        });
+        document.getElementById('exportViewData').addEventListener('click', (event) => {
+            event.stopPropagation();
+            setMenuOpen(false);
+            window.regionChart.exporting.viewData();
+            window.setTimeout(resizeFrame, 50);
+            window.setTimeout(resizeFrame, 250);
         });
     </script>
 </body>

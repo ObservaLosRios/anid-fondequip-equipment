@@ -6,19 +6,12 @@
     <title>Relación tipo y equipo (Región de Los Ríos)</title>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/treemap.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <style>
         :root {
             --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        }
-        body {
-            margin: 0;
-            font-family: var(--font-family);
-            background-color: var(--page-bg);
-            color: var(--text-color);
-            transition: background-color 0.25s ease, color 0.25s ease;
-        }
-        body[data-theme='light'] {
-            --page-bg: #f3f4f6;
+            --page-bg: #ffffff;
             --panel-bg: #ffffff;
             --text-color: #0f172a;
             --muted-color: #475569;
@@ -26,33 +19,37 @@
             --button-border: #cbd5f5;
             --button-text: #0f172a;
         }
-        body[data-theme='dark'] {
-            --page-bg: #0f172a;
-            --panel-bg: #111827;
-            --text-color: #e2e8f0;
-            --muted-color: #94a3b8;
-            --button-bg: #1f2937;
-            --button-border: #334155;
-            --button-text: #e2e8f0;
+        body {
+            margin: 0;
+            font-family: var(--font-family);
+            background: var(--page-bg);
+            color: var(--text-color);
         }
         .dashboard {
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 32px 24px 48px;
+            width: 100%;
+            max-width: none;
+            margin: 0;
+            padding: 0;
         }
         .card {
             background: var(--panel-bg);
-            border-radius: 16px;
-            padding: 24px;
-            box-shadow: 0 10px 35px rgba(15, 23, 42, 0.15);
+            border-radius: 0;
+            padding: 0;
+            box-shadow: none;
         }
         .header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             gap: 16px;
             flex-wrap: wrap;
-            margin-bottom: 16px;
+            padding: 20px 24px 0;
+            margin-bottom: 12px;
+        }
+        .header-actions {
+            position: relative;
+            display: flex;
+            align-items: center;
         }
         h1 {
             margin: 0;
@@ -63,38 +60,66 @@
             color: var(--muted-color);
             font-size: 0.95rem;
         }
-        #themeToggle {
-            border: 1px solid var(--button-border);
-            background: var(--button-bg);
-            color: var(--button-text);
-            border-radius: 50%;
-            width: 44px;
-            height: 44px;
+        #exportToggle {
+            border: 1px solid rgba(0, 0, 0, 0.25);
+            background: #f7f7f7;
+            color: rgba(0, 0, 0, 0.75);
+            border-radius: 2px;
+            width: 30px;
+            height: 30px;
             display: grid;
             place-items: center;
-            font-size: 1.15rem;
+            font-size: 16px;
             cursor: pointer;
-            transition: transform 0.15s ease, background-color 0.15s ease;
             padding: 0;
+            line-height: 1;
         }
-        #themeToggle::before {
-            content: '☀';
+        #exportToggle:hover {
+            background: #e6e6e6;
         }
-        #themeToggle[data-icon="moon"]::before {
-            content: '☾';
+        #exportToggle::before { content: '☰'; }
+        #exportMenu {
+            position: absolute;
+            top: 34px;
+            right: 0;
+            min-width: 200px;
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.25);
+            border-radius: 2px;
+            padding: 5px 0;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+            display: none;
+            z-index: 10;
         }
-        #themeToggle:hover {
-            transform: translateY(-1px);
+        #exportMenu[data-open="true"] { display: block; }
+        #exportMenu button {
+            width: 100%;
+            text-align: left;
+            border: 0;
+            background: transparent;
+            color: rgba(0, 0, 0, 0.85);
+            padding: 6px 12px;
+            border-radius: 0;
+            cursor: pointer;
+            font: inherit;
+            font-size: 12px;
+            line-height: 1.3;
+        }
+        #exportMenu button:hover {
+            background: #f2f2f2;
+        }
+        .export-separator {
+            height: 1px;
+            background: #e6e6e6;
+            margin: 5px 0;
         }
         #container {
+            width: 100%;
             min-height: 560px;
-        }
-        .highcharts-background {
-            fill: var(--panel-bg);
         }
     </style>
 </head>
-<body data-theme="light">
+<body>
     <div class="dashboard">
         <div class="card">
             <div class="header">
@@ -102,7 +127,22 @@
                         <h1>Relación tipo y equipo</h1>
                         <p class="subtitle">Región de Los Ríos — Drill down por tipo de equipamiento y unidades específicas.</p>
                 </div>
-                <button id="themeToggle" type="button" aria-label="Activar tema oscuro" data-icon="sun"></button>
+                <div class="header-actions">
+                    <button id="exportToggle" type="button" aria-label="Descargar" title="Descargar"></button>
+                    <div id="exportMenu" role="menu" aria-label="Opciones de descarga">
+                        <button type="button" id="exportFullscreen" role="menuitem">View in full screen</button>
+                        <button type="button" id="exportPrint" role="menuitem">Print chart</button>
+                        <div class="export-separator" role="separator"></div>
+                        <button type="button" id="exportPNG" role="menuitem">Download PNG image</button>
+                        <button type="button" id="exportJPEG" role="menuitem">Download JPEG image</button>
+                        <button type="button" id="exportSVG" role="menuitem">Download SVG vector image</button>
+                        <div class="export-separator" role="separator"></div>
+                        <button type="button" id="exportCSV" role="menuitem">Download CSV</button>
+                        <button type="button" id="exportXLS" role="menuitem">Download XLS</button>
+                        <div class="export-separator" role="separator"></div>
+                        <button type="button" id="exportViewData" role="menuitem">View data table</button>
+                    </div>
+                </div>
             </div>
             <div id="container"></div>
         </div>
@@ -111,6 +151,10 @@
         const treemapData = [{"id": "T0", "name": "Cromat\u00f3grafos y Espectr\u00f3metros", "color": "#2563EB", "value": 5}, {"name": "Q-EXACTIVE PLUS", "parent": "T0", "value": 1, "colorValue": 2019, "custom": {"marca": "Thermo \u00b7 Q-Exactive plus", "institucion": "UNIVERSIDAD AUSTRAL DE CHILE", "anio": 2019, "coordinador": "Carlos Alvarez"}}, {"name": "ESPECTR\u00d3METRO DE MASAS CON PLASMA ACOPLADO POR INDUCCI\u00d3N DE TIPO CUADRUPOLO", "parent": "T0", "value": 1, "colorValue": 2015, "custom": {"marca": "Thermo Fisher Scientific \u00b7 iCAP RQ", "institucion": "UNIVERSIDAD AUSTRAL DE CHILE", "anio": 2015, "coordinador": "Alexandre Corgne"}}, {"name": "UHPLC-MS/MS", "parent": "T0", "value": 1, "colorValue": 2015, "custom": {"marca": "AGILENT \u00b7 6460", "institucion": "UNIVERSIDAD AUSTRAL DE CHILE", "anio": 2015, "coordinador": "Rafael Burgos"}}, {"name": "SISTEMA IM\u00c1GENES QU\u00cdMICAS FTIR", "parent": "T0", "value": 1, "colorValue": 2015, "custom": {"marca": "PerkinElmer \u00b7 FTIR Frontier/Spotlight 400", "institucion": "UNIVERSIDAD AUSTRAL DE CHILE", "anio": 2015, "coordinador": "Aldo Rolleri"}}, {"name": "CROMATOGRAFO DE GASES CON DETECTOR SELECTIVO DE MASAS", "parent": "T0", "value": 1, "colorValue": 2013, "custom": {"marca": "Agilent Technologies \u00b7 MSD 5971A / GC 7890B", "institucion": "UNIVERSIDAD AUSTRAL DE CHILE", "anio": 2013, "coordinador": "Rafael Burgos"}}, {"id": "T1", "name": "Equipamiento de inform\u00e1tica", "color": "#F97316", "value": 1}, {"name": "EL PATAG\u00d3N", "parent": "T1", "value": 1, "colorValue": 2018, "custom": {"marca": "Nvidia \u00b7 DGX A100", "institucion": "UNIVERSIDAD AUSTRAL DE CHILE", "anio": 2018, "coordinador": "Crist\u00f3bal Navarro"}}, {"id": "T2", "name": "Equipos de Procesamiento y ensayo de Materiales", "color": "#14B8A6", "value": 3}, {"name": "SISTEMA DE ULTRAMICROTOM\u00cdA", "parent": "T2", "value": 1, "colorValue": 2017, "custom": {"marca": "Leica \u00b7 EM UC 7 / EM ACE 200 Au/Pd EM ACE 200 C EM TRIM2 S6D y EM KMR3", "institucion": "UNIVERSIDAD AUSTRAL DE CHILE", "anio": 2017, "coordinador": "J Daniel Carpio"}}, {"name": "PRENSA UNIVERSAL SERVO-HIDRAULICA DE ENSAYOS DIN\u00c1MICOS", "parent": "T2", "value": 1, "colorValue": 2015, "custom": {"marca": "CONTROLS- IPC Global \u00b7 IPC Global UTM-30", "institucion": "UNIVERSIDAD AUSTRAL DE CHILE", "anio": 2015, "coordinador": "Aitor Raposeiras"}}, {"name": "ESCANER LASER TERRESTRE TLS", "parent": "T2", "value": 1, "colorValue": 2015, "custom": {"marca": "RIEGL \u00b7 VZ-2000", "institucion": "UNIVERSIDAD AUSTRAL DE CHILE", "anio": 2015, "coordinador": "Galo Valdebenito"}}, {"id": "T3", "name": "Instrumentos Bioanal\u00edticos", "color": "#D946EF", "value": 3}, {"name": "CELL SORTER FACSMELODY BECTON DICKINSON", "parent": "T3", "value": 1, "colorValue": 2019, "custom": {"marca": "Becton Dickinson \u00b7 BD FACSMelody", "institucion": "UNIVERSIDAD AUSTRAL DE CHILE", "anio": 2019, "coordinador": "Claudia Quezada"}}, {"name": "SECUENCIADOR DE ADN", "parent": "T3", "value": 1, "colorValue": 2015, "custom": {"marca": "Appield Biosystems \u00b7 PRISM 3500", "institucion": "UNIVERSIDAD AUSTRAL DE CHILE", "anio": 2015, "coordinador": "Leyla C\u00e1rdenas"}}, {"name": "SECUENCIADOR DE TRANSCRIPTOMAS", "parent": "T3", "value": 1, "colorValue": 2013, "custom": {"marca": "ILLUMINA \u00b7 MISEQ SYSTEM V2", "institucion": "UNIVERSIDAD AUSTRAL DE CHILE", "anio": 2013, "coordinador": "Juan Opazo"}}, {"id": "T4", "name": "Microscopios y Difract\u00f3metros", "color": "#0EA5E9", "value": 5}, {"name": "3I VIVO MULTI-PHOTON WITH 3 GAASP PMT'S", "parent": "T4", "value": 1, "colorValue": 2020, "custom": {"marca": "IIntelligent Imaging Innovations 3i \u00b7 VIVO Multiphoton", "institucion": "UNIVERSIDAD AUSTRAL DE CHILE", "anio": 2020, "coordinador": "Fabiola S\u00e1nchez"}}, {"name": "MICROSCOPIO AUTOM\u00c1TICO ROBOTIZADO", "parent": "T4", "value": 1, "colorValue": 2018, "custom": {"marca": "Zeiss \u00b7 CellDiscoverer 7", "institucion": "UNIVERSIDAD AUSTRAL DE CHILE", "anio": 2018, "coordinador": "Alejandro Rojas"}}, {"name": "CONFOCAL RAMAN IMAGEN / MICROSCOP\u00cdA DE FUERZA AT\u00d3MICA", "parent": "T4", "value": 1, "colorValue": 2016, "custom": {"marca": "WITec \u00b7 Alpha 300 RA", "institucion": "UNIVERSIDAD AUSTRAL DE CHILE", "anio": 2016, "coordinador": "Loreto Troncoso Aguilera"}}, {"name": "MICROSCOPIO SPINNING DISK", "parent": "T4", "value": 1, "colorValue": 2015, "custom": {"marca": "Leica \u00b7 DMi8", "institucion": "UNIVERSIDAD AUSTRAL DE CHILE", "anio": 2015, "coordinador": "Jos\u00e9 Sarmiento Vargas"}}, {"name": "MICROSCOPIO CONFOCAL L\u00c1SER 3D PARA MATERIALES", "parent": "T4", "value": 1, "colorValue": 2014, "custom": {"marca": "Carl Zeiss \u00b7 LSM700/Axioimager Z2m", "institucion": "UNIVERSIDAD AUSTRAL DE CHILE", "anio": 2014, "coordinador": "Alfredo Aguilera"}}, {"id": "T5", "name": "Otros", "color": "#FACC15", "value": 12}, {"name": "LASER CONFOCAL SCANNING MICROSCOPE", "parent": "T5", "value": 1, "colorValue": 2024, "custom": {"marca": "Leica \u00b7 Stellaris 8", "institucion": "UNIVERSIDAD SAN SEBASTIAN", "anio": 2024, "coordinador": "Luis Barros"}}, {"name": "NEXTSEQ 2000 SYSTEM", "parent": "T5", "value": 1, "colorValue": 2023, "custom": {"marca": "Illumina \u00b7 20038897", "institucion": "UNIVERSIDAD AUSTRAL DE CHILE", "anio": 2023, "coordinador": "Andrea Silva"}}, {"name": "ABI3500XL GENETIC ANALYZER FOR SEQUENCE TYPING  FRAGMENT ANALYSIS", "parent": "T5", "value": 1, "colorValue": 2021, "custom": {"marca": "Applied Biosystems \u00b7 3500XL", "institucion": "UNIVERSIDAD AUSTRAL DE CHILE", "anio": 2021, "coordinador": "Andrea Silva"}}, {"name": "ANALIZADOR SEAHORSE", "parent": "T5", "value": 1, "colorValue": 2021, "custom": {"marca": "Agilent Technologies \u00b7 SEAHORSE XF PRO ANALYZER", "institucion": "UNIVERSIDAD AUSTRAL DE CHILE", "anio": 2021, "coordinador": "Mar\u00eda Carretta"}}, {"name": "SUBMERSIBLE STEREO PIV SYSTEM", "parent": "T5", "value": 1, "colorValue": 2021, "custom": {"marca": "Dantec Dynamics \u00b7 Submersible", "institucion": "UNIVERSIDAD AUSTRAL DE CHILE", "anio": 2021, "coordinador": "Cristian Cifuentes"}}, {"name": "RADAR DE PENETRACI\u00d3N TERRESTRE MULTICANAL", "parent": "T5", "value": 1, "colorValue": 2018, "custom": {"marca": "Geophysical Survey Sistem GSSI / DJI \u00b7 SIR 30 / SIR 4000 / Structure Scan Mini  Antenas  Unidad UAV DJI 210 RTK", "institucion": "UNIVERSIDAD AUSTRAL DE CHILE", "anio": 2018, "coordinador": "Galo Valdebenito"}}, {"name": "GENERADOR DE OLEAJE IRREGULAR", "parent": "T5", "value": 1, "colorValue": 2017, "custom": {"marca": "VTI V\u00e1zquez y Torres Ingenienier\u00eda S.L. \u00b7 Generador oleaje irregular flap/pist\u00f3n", "institucion": "UNIVERSIDAD AUSTRAL DE CHILE", "anio": 2017, "coordinador": "Cristian Cifuentes"}}, {"name": "MANIPULADOR DE NANOVOL\u00daMENES DE L\u00cdQUIDO", "parent": "T5", "value": 1, "colorValue": 2016, "custom": {"marca": "TTP Lab Tech \u00b7 Mosquito", "institucion": "UNIVERSIDAD AUSTRAL DE CHILE", "anio": 2016, "coordinador": "Gonzalo Mardones Cofr\u00e9"}}, {"name": "C\u00c1MARA AC\u00daSTICA BEAMFORMING SYSTEM", "parent": "T5", "value": 1, "colorValue": 2015, "custom": {"marca": "Bruel  Kjaer \u00b7 Outdoor sources system y otros componentes", "institucion": "UNIVERSIDAD AUSTRAL DE CHILE", "anio": 2015, "coordinador": "Enrique Su\u00e1rez"}}, {"name": "MICROCALOR\u00cdMETRO", "parent": "T5", "value": 1, "colorValue": 2014, "custom": {"marca": "Malvern \u00b7 PEAQ-ITC", "institucion": "UNIVERSIDAD AUSTRAL DE CHILE", "anio": 2014, "coordinador": "Gonzalo Mardones Cofr\u00e9"}}, {"name": "PLATAFORMA DE AN\u00c1LISIS DE IM\u00c1GENES EN ANIMALES IN VIVO PARA EL ESTUDIO DE LA PATOG\u00c9NESIS DE ENFERMEDADES", "parent": "T5", "value": 1, "colorValue": 2013, "custom": {"marca": "LICOR \u00b7 ODYSSEY CLx.", "institucion": "UNIVERSIDAD AUSTRAL DE CHILE", "anio": 2013, "coordinador": "Rody San Mart\u00edn"}}, {"name": "LIS\u00cdMETRO DE ALTA RESOLUCI\u00d3N", "parent": "T5", "value": 1, "colorValue": 2013, "custom": {"marca": "UMS \u00b7 SCIENCE LYSIMETER SOFILY", "institucion": "UNIVERSIDAD AUSTRAL DE CHILE", "anio": 2013, "coordinador": "Dorota Dec"}}];
 
         const baseOptions = {
+            chart: {
+                backgroundColor: 'transparent',
+                reflow: true
+            },
             series: [{
                 type: 'treemap',
                 name: 'Equipamiento',
@@ -149,6 +193,12 @@
             subtitle: {
                 text: null
             },
+            exporting: {
+                enabled: true,
+                buttons: {
+                    contextButton: { enabled: false }
+                }
+            },
             tooltip: {
                 useHTML: true,
                 formatter: function () {
@@ -173,55 +223,81 @@
             credits: { enabled: false }
         };
 
-        const themes = {
-            light: {
-                chart: { backgroundColor: 'var(--panel-bg)' },
-                title: { style: { color: '#0f172a' } },
-                subtitle: { style: { color: '#475569' } },
-                tooltip: { backgroundColor: '#ffffff', style: { color: '#0f172a' } }
-            },
-            dark: {
-                chart: { backgroundColor: 'var(--panel-bg)' },
-                title: { style: { color: '#e2e8f0' } },
-                subtitle: { style: { color: '#94a3b8' } },
-                tooltip: { backgroundColor: '#1e293b', style: { color: '#e2e8f0' } },
-                legend: { itemStyle: { color: '#e2e8f0' } }
-            }
-        };
+        window.losRiosTreemap = Highcharts.chart('container', baseOptions);
 
-        let currentTheme = 'light';
-        const container = document.getElementById('container');
-
-        function renderChart(themeKey) {
-            const options = Highcharts.merge({}, baseOptions, themes[themeKey]);
-            if (window.losRiosTreemap) {
-                window.losRiosTreemap.update(options, true, true);
-            } else {
-                window.losRiosTreemap = Highcharts.chart(container, options);
-            }
+        function resizeFrame() {
+            if (!window.frameElement) return;
+            const doc = document.documentElement;
+            const body = document.body;
+            const height = Math.max(
+                doc ? doc.scrollHeight : 0,
+                body ? body.scrollHeight : 0
+            );
+            if (height) window.frameElement.style.height = `${height}px`;
         }
 
-        renderChart(currentTheme);
+        const exportToggle = document.getElementById('exportToggle');
+        const exportMenu = document.getElementById('exportMenu');
 
-        const toggleBtn = document.getElementById('themeToggle');
-
-        function syncToggleState(theme) {
-            if (theme === 'light') {
-                toggleBtn.dataset.icon = 'sun';
-                toggleBtn.setAttribute('aria-label', 'Activar tema oscuro');
-            } else {
-                toggleBtn.dataset.icon = 'moon';
-                toggleBtn.setAttribute('aria-label', 'Activar tema claro');
-            }
+        function setMenuOpen(isOpen) {
+            exportMenu.dataset.open = isOpen ? 'true' : 'false';
         }
 
-        syncToggleState(currentTheme);
+        exportToggle.addEventListener('click', (event) => {
+            event.stopPropagation();
+            setMenuOpen(exportMenu.dataset.open !== 'true');
+        });
 
-        toggleBtn.addEventListener('click', () => {
-            currentTheme = currentTheme === 'light' ? 'dark' : 'light';
-            document.body.setAttribute('data-theme', currentTheme);
-            syncToggleState(currentTheme);
-            renderChart(currentTheme);
+        document.addEventListener('click', () => setMenuOpen(false));
+
+        document.getElementById('exportFullscreen').addEventListener('click', (event) => {
+            event.stopPropagation();
+            setMenuOpen(false);
+            const chart = window.losRiosTreemap;
+            if (chart.fullscreen && typeof chart.fullscreen.toggle === 'function') {
+                chart.fullscreen.toggle();
+            } else if (document.documentElement && document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            }
+        });
+
+        document.getElementById('exportPrint').addEventListener('click', (event) => {
+            event.stopPropagation();
+            setMenuOpen(false);
+            window.losRiosTreemap.exporting.print();
+        });
+
+        document.getElementById('exportPNG').addEventListener('click', (event) => {
+            event.stopPropagation();
+            setMenuOpen(false);
+            window.losRiosTreemap.exporting.exportChart({ type: 'image/png' });
+        });
+        document.getElementById('exportJPEG').addEventListener('click', (event) => {
+            event.stopPropagation();
+            setMenuOpen(false);
+            window.losRiosTreemap.exporting.exportChart({ type: 'image/jpeg' });
+        });
+        document.getElementById('exportSVG').addEventListener('click', (event) => {
+            event.stopPropagation();
+            setMenuOpen(false);
+            window.losRiosTreemap.exporting.exportChart({ type: 'image/svg+xml' });
+        });
+        document.getElementById('exportCSV').addEventListener('click', (event) => {
+            event.stopPropagation();
+            setMenuOpen(false);
+            window.losRiosTreemap.exporting.downloadCSV();
+        });
+        document.getElementById('exportXLS').addEventListener('click', (event) => {
+            event.stopPropagation();
+            setMenuOpen(false);
+            window.losRiosTreemap.exporting.downloadXLS();
+        });
+        document.getElementById('exportViewData').addEventListener('click', (event) => {
+            event.stopPropagation();
+            setMenuOpen(false);
+            window.losRiosTreemap.exporting.viewData();
+            window.setTimeout(resizeFrame, 50);
+            window.setTimeout(resizeFrame, 250);
         });
     </script>
 </body>
